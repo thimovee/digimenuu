@@ -12,11 +12,11 @@ const Navbar = async () => {
                     <span className="text-xl font-bold">LOGO</span>
                     <div className="flex gap-10 text-[#adadad]">
                         <ShoppingCart className="my-auto" />
-                        {session ? <div className="flex max-h-[35px] my-auto"><Image className="rounded-full" src={session.user.image!} alt={session.user.name!} width={35} height={35} /><ChevronDown size={20} /></div> : <SignInButton />}
+                        {session ? <div className="flex max-h-[35px] my-auto"><Image className=" ring-2 ring-gray-600 rounded-full" src={session.user.image!} alt={session.user.name!} width={35} height={35} /><ChevronDown size={20} /></div> : <SignInButton />}
                     </div>
                 </div>
                 <div className="h-14 w-3/4 mx-auto flex gap-10">
-                    <span className="my-auto">Thema&apos;s & Templates<span className="absolute translate-y-[215%] translate-x-[-515%] w-0 h-0 border-x-[7px] border-x-transparent border-b-[14px] border-b-slate-50"></span></span>
+                    <span className="my-auto">Thema&apos;s<span className="absolute translate-y-[205%] translate-x-[-290%] w-0 h-0 border-x-[7px] border-x-transparent border-b-[14px] border-b-slate-50"></span></span>
                     <span className="my-auto text-[#707070]">Video&apos;s</span>
                     <span className="my-auto text-[#707070]">Foto&apos;s</span>
                     <span className="my-auto text-[#707070]">Audio</span>

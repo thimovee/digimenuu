@@ -36,11 +36,11 @@
       "@styles/*": [
         "./src/styles/*"
       ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
       "@lib/*": [
         "./src/lib/*"
+      ],
+      "@public/*": [
+        "./public/*"
       ],
     }
   },
