@@ -37,11 +37,12 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String        @id @default(cuid())
     name          String?
-    email         String?   @unique
+    email         String?       @unique
     emailVerified DateTime?
     image         String?
+    shoppingCart  ShoppingCart?
     Account       Account[]
     Session       Session[]
 }
@@ -55,14 +56,23 @@ enum ProductType {
 }
 
 model Product {
-    id          String      @id @default(cuid())
-    type        ProductType
-    name        String
-    description String?
-    price       Float
-    image       String?
-    discount    Float?
-    featured    Boolean     @default(false)
-    createdAt   DateTime    @default(now())
-    updatedAt   DateTime    @updatedAt
+    id            String         @id @default(cuid())
+    type          ProductType
+    name          String
+    description   String?
+    price         Float
+    image         String?
+    discount      Float?
+    featured      Boolean        @default(false)
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+    shoppingCarts ShoppingCart[]
+}
+
+model ShoppingCart {
+    id        String    @id @default(cuid())
+    userId    String    @unique
+    createdAt DateTime  @default(now())
+    products  Product[]
+    user      User      @relation(fields: [userId], references: [id])
 }
