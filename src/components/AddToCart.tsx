@@ -1,4 +1,5 @@
 "use client"
+import { ShoppingCart } from "lucide-react";
 import { useTransition } from "react";
 
 interface AddToCartButtonProps {
@@ -19,9 +20,8 @@ export default function AddToCartButton({ productId, addToCart }: AddToCartButto
         <button
             disabled={pending}
             onClick={handleAddToCart}
-            className="bg-blue-500 text-white w-[140px] py-2 flex rounded-sm gap-2"
-        >
-            Toevoegen
+            className="bg-blue-500 text-white w-[140px] py-2 flex rounded-sm gap-2">
+            <ShoppingCart className="ml-3 my-auto" size={20} />Toevoegen
         </button>
     );
 }

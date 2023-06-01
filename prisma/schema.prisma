@@ -36,6 +36,12 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model Transaction {
+    id     String  @id @default(cuid())
+    User   User?   @relation(fields: [userId], references: [id])
+    userId String?
+}
+
 model User {
     id            String        @id @default(cuid())
     name          String?
@@ -43,6 +49,7 @@ model User {
     emailVerified DateTime?
     image         String?
     shoppingCart  ShoppingCart?
+    Transaction   Transaction[]
     Account       Account[]
     Session       Session[]
 }
@@ -55,17 +62,25 @@ enum ProductType {
     D3
 }
 
+enum ProductCategory {
+    Frietzaak
+    Restaurant
+    Winkel
+    Recreatie
+}
+
 model Product {
-    id            String         @id @default(cuid())
+    id            String          @id @default(cuid())
+    category      ProductCategory
     type          ProductType
     name          String
     description   String?
     price         Float
     image         String?
     discount      Float?
-    featured      Boolean        @default(false)
-    createdAt     DateTime       @default(now())
-    updatedAt     DateTime       @updatedAt
+    featured      Boolean         @default(false)
+    createdAt     DateTime        @default(now())
+    updatedAt     DateTime        @updatedAt
     shoppingCarts ShoppingCart[]
 }
 
